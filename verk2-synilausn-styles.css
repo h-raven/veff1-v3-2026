@@ -1,0 +1,310 @@
+/**
+ * CSS fyrir sýnilausn á verkefni 2.
+ * Heldur einfalt en notar grunn CSS og flexbox.
+ * _Ekki_ skalanlegt.
+ */
+
+/**
+ * Fjarlægja gefið margin og padding af öllu.
+ */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/**
+ * Setja border-box á öll element
+ * => reiknum stærð box sem width + margin
+ * padding + border ekki inní því.
+ */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/**
+ * Hjálpar class sem felur sjónrænt það sem
+ * skjálesarar lesa.
+ */
+.sr-only:not(:focus, :active) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  clip-path: inset(0 50px 50px 0);
+  clip-path: inset(50%);
+}
+
+/** Letur **/
+
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 100 900;
+  src: url("./fonts/Inter.ttf") format("woff2");
+}
+
+/**
+ * Lætur myndir aldrei taka meira pláss en
+ * foreldri skilgreinir.
+ */
+img {
+  max-width: 100%;
+}
+
+/**
+ * Litur á hlekkjum erfist frá foreldri
+ */
+a {
+  color: inherit;
+}
+
+/**
+ * Leturstærð erfist frá foreldri í form elements.
+ */
+input,
+button,
+select {
+  font-size: inherit;
+}
+
+body {
+  font-family: Inter, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: #000000;
+  background-color: #ffeedd;
+}
+
+/**
+ * Almennt takka útlit, virkar bæði fyrir <a>
+ * og <button>.
+ */
+.button {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 1rem;
+  color: #ffeedd;
+  text-decoration: none;
+  background-color: #996644;
+  border: 1px solid #000000;
+  border-radius: 5px;
+}
+
+/** Haus **/
+
+header {
+  text-align: center;
+}
+
+header h1 {
+  font-size: 3.25rem;
+}
+
+/** Valmynd **/
+
+/**
+ * Valmynd er á síðu en þegar skrunað niður
+ * festist hún við topp á síðu og eltir.
+ */
+nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  padding: 10px 10px 20px;
+  overflow: hidden;
+  background-color: #ffeedd;
+  border-bottom: 2px solid #000000;
+}
+
+nav ul {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+  overflow: auto;
+  list-style: none;
+}
+
+nav ul li {
+  font-size: 1.5rem;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav a:hover,
+nav a:focus {
+  text-decoration: underline;
+}
+
+nav strong {
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+/** Meginmál **/
+
+/**
+ * Sett utan um allt efni til að búa til samræmt
+ * pláss á milli.
+ */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  min-height: 100vh;
+  margin-top: 10px;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 1000px;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin: 0 auto;
+}
+
+/** Fótur **/
+
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  background-color: #996644;
+  border-top: 2px solid #000000;
+}
+
+footer .content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  max-width: 800px;
+}
+
+footer ul {
+  list-style: none;
+}
+
+/** Flekar / cards á forsíðu **/
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: calc(50% - 20px);
+}
+
+.card h2 {
+  flex: 1;
+  font-size: 2rem;
+}
+
+.card .content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.text img {
+  width: 100%;
+}
+
+.card .image img {
+  display: block;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+/** Textasíða **/
+
+.text h2 {
+  margin-bottom: 20px;
+}
+
+.text h3 {
+  margin-bottom: 10px;
+}
+
+.text p {
+  margin-bottom: 30px;
+}
+
+/** Töflur **/
+
+table {
+  width: 100%;
+  margin-bottom: 20px;
+  border-spacing: 0;
+}
+
+table th,
+table td {
+  padding: 10px;
+  text-align: left;
+}
+
+table tbody tr:nth-child(2n + 1) {
+  background-color: #eebb99;
+}
+
+/** Form **/
+
+form {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 20px;
+  width: 50%;
+}
+
+fieldset {
+  border: 0;
+}
+
+fieldset legend {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+fieldset div {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+fieldset div label {
+  display: block;
+}
+
+fieldset input,
+fieldset select,
+fieldset textarea {
+  width: 100%;
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+}
+
+fieldset input[type="checkbox"] {
+  display: inline-block;
+  width: auto;
+  margin-right: 10px;
+}
